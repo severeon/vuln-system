@@ -1,26 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Box, Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material'
+import HomePage from './components/HomePage'
+import TypeChartEditor from './components/TypeChartEditor'
+import TypeSystemProvider from './context/TypeSystemContext'
 
-function App() {
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
+
+import './App.css'
+
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom"
+// import { Create } from '@mui/icons-material'
+import CreateVSystemForm from './components/CreateVSystemForm'
+import Header from './components/Header'
+// import Footer from './components/Footer'
+
+const theme = createTheme()
+
+const Layout = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <TypeSystemProvider>
+        <Box maxWidth="lg" className='wrapper' style={{display: 'flex', flexDirection: 'column', flex: 1}}>
+          <Header />
+          <Outlet />
+        </Box>
+      </TypeSystemProvider>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Layout,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "edit",
+        element: <TypeChartEditor />
+      },
+      {
+        path: 'new',
+        element: <CreateVSystemForm />
+      }
+    ]
+  },
+]);
+
+const App: React.FC = () => <RouterProvider router={router} />
+
+if ((import.meta as any).hot) {
+  (import.meta as any).hot.dispose(() => router.dispose());
+}
+
+export default App

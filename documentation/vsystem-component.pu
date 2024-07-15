@@ -1,0 +1,53 @@
+@startuml vsystem
+    skinparam component {
+    FontSize 14
+    BackgroundColor<<Layout>> LightGrey
+    BorderColor<<Layout>> Grey
+    }
+
+    [App] as app
+    [VSystemManager] as vsysmanager
+    [TypeChartManager] as typechartmanager
+    [TypeEditor] as typeeditor
+    [Visualizations] as visualizations
+    [TableView] as tableview
+    [GraphView] as graphview
+    [Header] as header <<Layout>>
+    [Sidebar] as sidebar <<Layout>>
+    [MainContent] as maincontent <<Layout>>
+    [Footer] as footer <<Layout>>
+
+    app -left--> header
+    app -right--> footer
+    app -up--> sidebar
+    app ---> maincontent
+
+    maincontent --> vsysmanager
+    maincontent --> typechartmanager
+    maincontent --> typeeditor
+    maincontent --> visualizations
+
+    vsysmanager --> [VSystemList]
+    vsysmanager --> [VSystemCreator]
+    vsysmanager --> [VSystemEditor]
+
+    typechartmanager --> [TypeChartList]
+    typechartmanager --> [TypeChartCreator]
+    typechartmanager --> [TypeChartEditor]
+
+    typeeditor --> [TypeList]
+    typeeditor --> [TypeCreator]
+    typeeditor --> [TypeRelationshipEditor]
+
+    visualizations --> tableview
+    visualizations --> graphview
+
+    sidebar -up-> [Navigation]
+    sidebar -up-> [UserProfile]
+
+    header --> [SearchBar]
+    header --> [Notifications]
+
+    footer --> [Copyright]
+    footer --> [SocialLinks]
+@enduml

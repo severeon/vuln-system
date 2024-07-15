@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Chart Editor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+        .page-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 24px;
+        }
+        .type-card {
+            width: 340px;
+            margin: 16px;
+        }
+        .type-card > .mdl-card__title {
+            color: #fff;
+            height: 176px;
+        }
+        .type-card > .mdl-card__menu {
+            color: #fff;
+        }
+        .interaction-chip {
+            margin: 4px;
+        }
+        .fire { background: #F44336; }
+        .water { background: #2196F3; }
+        .grass { background: #4CAF50; }
+        .electric { background: #FFEB3B; color: #000; }
+    </style>
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Type Chart Editor</span>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <!-- Fire Type Card -->
+                <div class="type-card mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title fire">
+                        <h2 class="mdl-card__title-text">Fire</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <h4>Interactions:</h4>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Strong vs Grass (2x damage)</span>
+                        </span>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Weak vs Water (0.5x damage)</span>
+                        </span>
+                        <h4>Status Effect:</h4>
+                        <p>Burn</p>
+                        <h4>Environmental Boost:</h4>
+                        <p>Sunny weather</p>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Edit Interactions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Water Type Card -->
+                <div class="type-card mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title water">
+                        <h2 class="mdl-card__title-text">Water</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <h4>Interactions:</h4>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Strong vs Fire (2x damage)</span>
+                        </span>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Weak vs Grass (0.5x damage)</span>
+                        </span>
+                        <h4>Status Effect:</h4>
+                        <p>Soak</p>
+                        <h4>Environmental Boost:</h4>
+                        <p>Rainy weather</p>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Edit Interactions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Grass Type Card -->
+                <div class="type-card mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title grass">
+                        <h2 class="mdl-card__title-text">Grass</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <h4>Interactions:</h4>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Strong vs Water (2x damage)</span>
+                        </span>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Weak vs Fire (0.5x damage)</span>
+                        </span>
+                        <h4>Status Effect:</h4>
+                        <p>Leech</p>
+                        <h4>Environmental Boost:</h4>
+                        <p>Grassy terrain</p>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Edit Interactions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Electric Type Card -->
+                <div class="type-card mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title electric">
+                        <h2 class="mdl-card__title-text">Electric</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <h4>Interactions:</h4>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Strong vs Water (2x damage)</span>
+                        </span>
+                        <span class="mdl-chip interaction-chip">
+                            <span class="mdl-chip__text">Neutral vs Fire (1x damage)</span>
+                        </span>
+                        <h4>Status Effect:</h4>
+                        <p>Paralyze</p>
+                        <h4>Environmental Boost:</h4>
+                        <p>Thunderstorm</p>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Edit Interactions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style="position: fixed; bottom: 24px; right: 24px;">
+            <i class="material-icons">add</i>
+        </button>
+    </div>
+</body>
+</html>

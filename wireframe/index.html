@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V-System Homepage</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .columns-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .column:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .column-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .column-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .column-description {
+            font-size: 16px;
+            text-align: center;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .columns-container {
+                flex-direction: column;
+            }
+            .column {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout">
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <h1 class="mdl-typography--headline" style="margin-bottom: 40px;">Welcome to V-System</h1>
+                <div class="columns-container">
+                    <div class="column">
+                        <i class="material-icons column-icon">add_circle</i>
+                        <div class="column-title">Create New System</div>
+                        <p class="column-description">Start from scratch and build your own custom type system. Define types, interactions, and rules to suit your needs.</p>
+                    </div>
+                    <div class="column">
+                        <i class="material-icons column-icon">folder_open</i>
+                        <div class="column-title">Load Saved System</div>
+                        <p class="column-description">Continue working on a previously saved type system. Pick up right where you left off and keep refining your creation.</p>
+                    </div>
+                    <div class="column">
+                        <i class="material-icons column-icon">lightbulb</i>
+                        <div class="column-title">Load Example System</div>
+                        <p class="column-description">Explore pre-built type systems to get inspiration or use as a starting point for your own custom system.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

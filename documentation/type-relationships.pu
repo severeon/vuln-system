@@ -1,0 +1,47 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class VSystem {
+  +id: string
+  +name: string
+  +typeCharts: TypeChart[]
+}
+
+class TypeChart {
+  +id: string
+  +name: string
+  +types: Type[]
+  +interactions: TypeInteraction[]
+  +getInteractions(type1: string, type2: string): TypeInteraction[]
+}
+
+class Type {
+  +id: string
+  +name: string
+  +color: string
+  +icon: string
+  +statusEffect: string
+  +environmentalBoost: string
+}
+
+class TypeInteraction {
+  +types: [string, string]
+  +isBidirectional: boolean
+  +interactionType: InteractionType
+  +interactionTags: string[]
+  +interactionMapper: function
+}
+
+enum InteractionType {
+  APPLYING
+  RECEIVING
+}
+
+VSystem "1" *-- "0..*" TypeChart : contains
+TypeChart "1" *-- "0..*" Type : contains
+TypeChart "1" *-- "0..*" TypeInteraction : defines
+TypeInteraction --> InteractionType : uses
+TypeInteraction --> "2" Type : references
+
+@enduml
